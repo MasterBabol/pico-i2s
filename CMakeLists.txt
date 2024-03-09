@@ -16,7 +16,7 @@ file(GLOB_RECURSE SOURCES "src/*.c" "src/*.cpp")
 add_executable(${PROJECT_NAME} ${SOURCES})
 
 # pull in common dependencies
-target_link_libraries(${PROJECT_NAME} pico_stdlib hardware_i2c)
+target_link_libraries(${PROJECT_NAME} pico_stdlib hardware_pio hardware_dma hardware_clocks)
 
 # create map/bin/hex/uf2 file etc.
 pico_add_extra_outputs(${PROJECT_NAME})

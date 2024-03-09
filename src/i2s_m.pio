@@ -1,0 +1,34 @@
+
+.program i2s_m
+
+; side_set = {LRCK, BCK}
+.side_set 2
+
+
+loop:
+right_channel_rem_out:
+    out pins, 1                     side 0b00 ; is also the last lsb of r-channel data
+    pull noblock                    side 0b01
+
+left_channel_out_start:
+    out pins, 1                     side 0b00
+    set x, 30                       side 0b01
+
+left_channel_main_out:
+    out pins, 1                     side 0b00
+    jmp x--, left_channel_main_out  side 0b01
+
+left_channel_rem_out:
+    out pins, 1                     side 0b10
+    pull noblock                    side 0b11
+
+right_channel_out_start:
+    out pins, 1                     side 0b10
+    set x, 29                       side 0b11
+
+right_channel_main_out:
+    out pins, 1                     side 0b10
+    jmp x--, right_channel_main_out side 0b11
+
+    out pins, 1                     side 0b10
+    jmp right_channel_rem_out       side 0b11

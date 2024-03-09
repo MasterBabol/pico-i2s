@@ -24,6 +24,13 @@
   "cmake.generator": "Ninja",
   "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
   "files.associations": {
-    "stdlib.h": "c"
+    "stdlib.h": "c",
+    "array": "c",
+    "string": "c",
+    "string_view": "c",
+    "ranges": "c",
+    "dma.h": "c",
+    "clocks.h": "c",
+    "pio.h": "c"
   }
 }
